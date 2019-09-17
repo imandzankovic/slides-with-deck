@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Your deck.js Presentation</title>
+
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" media="screen" href="/core/deck.core.css">
+
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" media="screen" href="/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" media="screen" href="/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" media="screen" href="/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" media="screen" href="/extensions/status/deck.status.css">
+	<link rel="stylesheet" media="screen" href="/extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" media="screen" href="/themes/style/web-2.0.css">
+
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" media="screen" href="/themes/transition/horizontal-slide.css">
+
+	<!-- Basic black and white print styles -->
+	<link rel="stylesheet" media="print" href="/core/print.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://unpkg.com/konva@4.0.10/konva.min.js"></script>
+	<!-- Required Modernizr file -->
+	<script src="/modernizr.custom.js"></script>
+</head>
+
+<body>
+	<div>
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div>
+
+			<%for(let i=0; i<slidesx.length; i++) {%>
+
+			<section class="slide">
+				<%for(let j=0; j<slidesx[i].elements.length; j++) {%>
+				<% if (slidesx[i].elements[j].stage != '') { %>
+				<div id="container"></div>
+				<div id="<%= slidesx[i].elements[j].id %>"></div>
+
+
+				<script>
+					window.onload = function () {
+						var width = window.innerWidth;
+						var height = window.innerHeight;
+						var stage = new Konva.Stage({
+							container: 'container',
+							width: width,
+							height: height
+						});
+
+						var layer = new Konva.Layer();
+						window.layer = layer;
+
+						stage.add(layer);
+						window.stage = stage;
+					}
+					var data = '<%-slidesx[i].elements[j].stage%>';
+					console.log('data je' + data)
+
+
+					// create node using json string
+					var stage = Konva.Node.create(data, '<%= slidesx[i].elements[j].id %>');
+				</script>
+				<!-- <% } else { %>
+				<<%=slidesx[i].elements[j].type %> id="<%= slidesx[i].elements[j].id %>">
+					<%= slidesx[i].elements[j].value %> </<%=slidesx[i].elements[j].type %>>
+
+				<% } %> -->
+
+				<script>
+					console.log(id);
+					if (id = undefined) {
+						var x = '<%= slidesx[i].elements[j].x%>';
+						var y = '<%= slidesx[i].elements[j].y%>';
+						var id = '<%= slidesx[i].elements[j].id%>';
+
+						// console.log(x);
+						// console.log(y);
+						console.log(id);
+
+						//$('.reveal').css({position: 'relative'});
+						//$('.slides').css({position: 'relative'});
+						$('#' + id).parent().css({ position: 'relative' });
+						$('#' + id).css({ top: x + 'px', left: y + 'px', position: 'absolute' });
+
+
+						var elementStyle = document.getElementById(id).style;
+					}
+
+
+
+
+					// $('#' + id).css({top: x + 'px', left:  y + 'px', position:'absolute'});
+
+				</script>
+
+				<%}%>	
+		</section>
+		
+		  <div aria-role="navigation">
+				<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+				<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+			  </div>
+		  
+			  <!-- deck.status snippet -->
+			  <p class="deck-status" aria-role="status">
+				<span class="deck-status-current"></span>
+				/
+				<span class="deck-status-total"></span>
+			  </p>
+		  
+			  <!-- deck.goto snippet -->
+			  <form action="." method="get" class="goto-form">
+				<label for="goto-slide">Go to slide:</label>
+				<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+				<datalist id="goto-datalist"></datalist>
+				<input type="submit" value="Go">
+			  </form>
+		  	</div>
+		  
+		  <!-- Required JS files. -->
+		
+			<%}%>
+
+				<script src="/jquery.min.js"></script>
+				<script src="/core/deck.core.js"></script>
+
+				<!-- Extension JS files. Add or remove as needed. -->
+				<script src="/extensions/menu/deck.menu.js"></script>
+				<script src="/extensions/goto/deck.goto.js"></script>
+				<script src="/extensions/status/deck.status.js"></script>
+				<script src="/extensions/navigation/deck.navigation.js"></script>
+				<script src="/extensions/scale/deck.scale.js"></script>
+
+				<!-- Initialize the deck. You can put this in an external file if desired. -->
+				<script>
+					$(function () {
+						$.deck('.slide');
+					});
+				</script>
+</body>
+
+</html>
+<!-- End extension snippets. -->

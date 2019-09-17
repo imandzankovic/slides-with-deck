@@ -1,0 +1,26 @@
+{
+  "name": "deck.js-latest",
+  "version": "1.0.0",
+  "description": "A JavaScript library for building modern HTML presentations. deck.js is flexible enough to let advanced CSS and JavaScript authors craft highly customized decks, but also provides templates and themes for the HTML novice to build a standard slideshow.",
+  "main": "jquery.min.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.1",
+    "nodemon": "^1.19.2",
+    "path": "^0.12.7"
+  }
+}
