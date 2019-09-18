@@ -10,31 +10,31 @@
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
   <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
 
-<!-- Required stylesheet -->
-<link rel="stylesheet" media="screen" href="/core/deck.core.css">
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" media="screen" href="/core/deck.core.css">
 
-<!-- Extension CSS files go here. Remove or add as needed. -->
-<link rel="stylesheet" media="screen" href="/extensions/goto/deck.goto.css">
-<link rel="stylesheet" media="screen" href="/extensions/menu/deck.menu.css">
-<link rel="stylesheet" media="screen" href="/extensions/navigation/deck.navigation.css">
-<link rel="stylesheet" media="screen" href="/extensions/status/deck.status.css">
-<link rel="stylesheet" media="screen" href="/extensions/scale/deck.scale.css">
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="/extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="/extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="/extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="/extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="/extensions/scale/deck.scale.css">
 
-<!-- Style theme. More available in /themes/style/ or create your own. -->
-<link rel="stylesheet" media="screen" href="/themes/style/web-2.0.css">
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="/themes/style/web-2.0.css">
 
-<!-- Transition theme. More available in /themes/transition/ or create your own. -->
-<link rel="stylesheet" media="screen" href="/themes/transition/horizontal-slide.css">
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="/themes/transition/horizontal-slide.css">
 
-<!-- Basic black and white print styles -->
-<link rel="stylesheet" media="print" href="/core/print.css">
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="/core/print.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://unpkg.com/konva@4.0.10/konva.min.js"></script>
-<!-- Required Modernizr file -->
-<script src="/modernizr.custom.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://unpkg.com/konva@4.0.10/konva.min.js"></script>
+  <!-- Required Modernizr file -->
+  <script src="/modernizr.custom.js"></script>
 
 
 
@@ -43,7 +43,8 @@
 
 <body id="page-top">
   <div id="wrapper">
-    <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+    <nav
+      class="navbar navbar-dark text-nowrap text-truncate align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
       <div class="container-fluid d-flex flex-column p-0">
         <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
           <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
@@ -51,7 +52,7 @@
         </a>
         <hr class="sidebar-divider my-0">
         <ul class="nav navbar-nav text-light" id="accordionSidebar">
-          <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i
+          <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="width: 199px;"><i
                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
         </ul>
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle"
@@ -60,7 +61,7 @@
     </nav>
     <div class="d-flex flex-column" id="content-wrapper">
       <div id="content">
-        <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+        <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="height: 75px;">
           <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"
               type="button"><i class="fas fa-bars"></i></button>
             <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -194,28 +195,24 @@
           </div>
         </nav>
         <div class="container-fluid">
-          <!-- <div class="d-sm-flex justify-content-between align-items-center mb-4"> -->
-            <div style="text-align: center">
-            <h3 class="text-dark mb-0">Dashboard</h3>
-            <div style="margin-left: 600px"> 
-              <a class="btn btn-primary btn-sm d-none d-sm-inline-block"
-              role="button" href="/table.html"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Your Presentations</a>
-            
-                
-              <button class="btn" id="preview"><i class="fa fa-eye"></i> Preview</button>
-              <button class="btn" id="savePresentation"><i class="fa fa-folder"></i> Save</button>
-              <br>
-              <br>
-            </div>
-            
+          <div class="d-sm-flex justify-content-between align-items-center mb-4">
+            <h3 style="margin-left: 300px" class="text-dark mb-0">Dashboard</h3>
+            <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
+                class="fas fa-download fa-sm text-white-50"></i>&nbsp;New Presentation</a>
           </div>
-          <div class="row">
+
+          <div class="d-sm-flex justify-content-between align-items-center mb-4">
+            <button style="margin-left: 600px" class="btn" id="preview"><i class="fa fa-eye"></i> Preview</button>
+            <button class="btn" id="savePresentation"><i class="fa fa-folder"></i> Save</button>
+
+          </div>
+          <div class="row" style="height: 123px;width: 430px;">
             <div class="col-md-6 col-xl-3 mb-4">
               <div class="card shadow border-left-primary py-2">
-                <div class="card-body" id="Box">
+                <div class="card-body">
                   <div class="row align-items-center no-gutters">
                     <div class="col mr-2">
-                      <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Add Box</span></div>
+                      <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>BOX</span></div>
                       <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
                     </div>
                     <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
@@ -224,33 +221,11 @@
               </div>
             </div>
             <div class="col-md-6 col-xl-3 mb-4">
-              <div class="card shadow border-left-info py-2">
-                <div class="card-body" id="Circle">
+              <div class="card shadow border-left-primary py-2">
+                <div class="card-body">
                   <div class="row align-items-center no-gutters">
                     <div class="col mr-2">
-                      <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span>Add Circle</span></div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="text-dark font-weight-bold h5 mb-0 mr-3"></div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm">
-                            <div class="progress-bar bg-info" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                              style="width: 50%;"><span class="sr-only">50%</span></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-xl-3 mb-4">
-              <div class="card shadow border-left-warning py-2">
-                <div class="card-body" id="addTitle">
-                  <div class="row align-items-center no-gutters">
-                    <div class="col mr-2">
+
                       <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Add text</span></div>
                       <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
                     </div>
@@ -262,818 +237,63 @@
           </div>
           <div class="row">
             <div class="col-lg-7 col-xl-8">
-              <div class="card shadow mb-4" style="width: 777px;height: 450px;">
-                <div class="card-body1" style="width: 677px;height: 450px;">
-                  <!-- <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Earnings&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;0&quot;,&quot;10000&quot;,&quot;5000&quot;,&quot;15000&quot;,&quot;10000&quot;,&quot;20000&quot;,&quot;15000&quot;,&quot;25000&quot;],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas></div> -->
-                  <!-- <section class="slide"> -->
-                   
-                      
-                        <br>
-                       
-                        <!-- <table id="table">
-                
-                          <br>
-                          <thead>
-                            <tr>
-                
-                              <th>Add element:</th>
-                
-                            </tr>
-                          </thead>
-                
-                          <tr>
-                            <td>
-                              <div class="oval" id="Circle"></div>
-                            </td>
-                
-                            <td>
-                              <button class="btn" id="addTitle"><i class="fa fa-comment-o"></i></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <br>
-                              <div class="square" id="Box"></div>
-                            </td>
-                            <br>
-                          </tr>
-                          <tr>
-                            <td> </td>
-                
-                          </tr>
-                        </table> -->
-                        <br>
-                        <br>
-                
-                
-                
-                        <!-- <button class="btn" id="Box"><i class="fa fa-clone"></i> Add Box</button> -->
-                        <!-- <button class="btn" id="Circle"><i class="fa fa-circle"></i>Add Circle</button> -->
-                        <!-- <div class="oval" id="Circle"></div>
-                        <div class="square" id="Box"></div> -->
-                
-                
-                
-                      </div>
-                
-                
-                      <div id="container">
-                
-                      </div>
-                
-                
-                
-                      <!-- <style>
-                        .oval {
-                          -webkit-box-sizing: content-box;
-                          -moz-box-sizing: content-box;
-                          box-sizing: content-box;
-                          width: 81px;
-                          height: 37px;
-                          border: none;
-                          -webkit-border-radius: 50%;
-                          border-radius: 50%;
-                          font: normal 100%/normal Arial, Helvetica, sans-serif;
-                          color: rgba(47, 55, 206, 1);
-                          -o-text-overflow: clip;
-                          text-overflow: clip;
-                          background: #23b3ab;
-                          -webkit-transform: rotateX(0.5729577951308232deg) rotateY(-60.160568488736445deg);
-                          transform: rotateX(0.5729577951308232deg) rotateY(-60.160568488736445deg);
-                        }
-                
-                        .square {
-                          -webkit-box-sizing: content-box;
-                          -moz-box-sizing: content-box;
-                          box-sizing: content-box;
-                          width: 40px;
-                          height: 40px;
-                          background: #23b3ab;
-                          margin-left: 20px
-                        }
-                
-                        .rectangle {
-                          width: 90px;
-                          height: 1px;
-                          background: #23b3ab;
-                          -webkit-transform: rotateX(0.5729577951308232deg) rotateY(-60.160568488736445deg);
-                          transform: rotateX(0.5729577951308232deg) rotateY(-60.160568488736445deg);
-                
-                        }
-                
-                        #table {
-                          margin-left: 80px
-                        }
-                
-                
-                        /* #container {
-                          width: 900px;
-                          height: 500px;
-                          margin-top: 58px;
-                          background-color: blueviolet;
-                        }
-                
-                        #track {
-                          width: 940px;
-                          height: 100px;
-                          margin-top: -50px;
-                          position: absolute;
-                          background-color: cornsilk;
-                        } */
-                        .btn {
-                          background-color: #23b3ab;
-                          border: none;
-                          color: white;
-                          padding: 12px 16px;
-                          font-size: 16px;
-                          cursor: pointer;
-                        }
-                
-                        /* Darker background on mouse-over */
-                        .btn:hover {
-                          background-color: RoyalBlue;
-                        }
-                      </style> -->
-                      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-                      <script>
-                        window.onload = function () {
-                          var width = window.innerWidth;
-                          var height = window.innerHeight;
-                          var stage = new Konva.Stage({
-                            container: 'container',
-                            width: width,
-                            height: height
-                          });
-                
-                          var layer = new Konva.Layer();
-                          window.layer = layer;
-                
-                          stage.add(layer);
-                          window.stage = stage;
-                        }
-                
-                document.getElementById("preview").addEventListener('click',function() {
-                
-                window.open('http://localhost:3000/api/slides');
-                });
-                        // var stage = new Konva.Stage({
-                        // 	container: 'container',
-                        // 	width: 900,
-                        // 	height: 500,
-                        // 	draggable: true
-                
-                
-                        // })
-                
-                        // var layer = new Konva.Layer({
-                
-                        // });
-                        // window.layer=layer;
-                
-                
-                
-                        function addCircle() {
-                
-                          var elId = ''
-                          elId = NewGuid();
-                          window.elId1 = elId;
-                
-                          var circle = new Konva.Circle({
-                            x: 100,
-                            y: 100,
-                            radius: 50,
-                            fill: 'blue',
-                            id: elId,
-                            draggable: true
-                
-                          });
-                
-                          circle.on('dblclick', () => {
-                
-                            addTextbox();
-                          });
-                          window.circle = circle;
-                
-                          window.stage.on('click', function (e) {
-                            //if click on empty area - remove all transformers
-                            if (e.target === stage) {
-                              window.stage.find('Transformer').destroy();
-                              window.layer.draw();
-                              return;
-                            }
-                            // // do nothing if clicked NOT on our rectangles
-                            if (!e.target === circle) {
-                              return;
-                            }
-                
-                            // remove old transformers
-                            // TODO: we can skip it if current rect is already selected
-                            window.stage.find('Transformer').destroy();
-                
-                            // create new transformer
-                            var tr = new Konva.Transformer();
-                            window.layer.add(tr);
-                            tr.attachTo(e.target);
-                            window.layer.draw();
-                
-                
-                          });
-                
-                          circle.addEventListener('click', function (e) {
-                            window.addEventListener('keypress', function (e) {
-                
-                              if (e.key == 'd') {
-                                circle.remove()
-                                window.layer.draw();
-                              }
-                
-                            });
-                
-                          });
-                
-                
-                          var listOfShapes = new Array();
-                          let j = { id: "", type: "", value: "", x: "", y: "", stage: [] };
-                          j.id = window.elId1;
-                          //j.type = 'shape';
-                          // j.value = circle.attrs.fill;
-                          // j.x = circle.attrs.x;
-                          // j.y = circle.attrs.y;
-                
-                          window.layer.add(window.circle);
-                          window.stage.add(window.layer);
-                          window.layer.draw();
-                          j.stage = window.stage.toJSON();
-                          listOfShapes.push(j)
-                
-                          window.listOfShapes = listOfShapes;
-                          console.log(listOfShapes)
-                
-                        }
-                
-                
-                        function addBox() {
-                
-                          var elId = ''
-                          elId = NewGuid();
-                          window.elId = elId;
-                
-                          var rect = new Konva.Rect({
-                            x: 20,
-                            y: 20,
-                            width: 100,
-                            height: 50,
-                            fill: 'green',
-                            stroke: 'black',
-                            strokeWidth: 4,
-                            draggable: true
-                
-                          });
-                
-                          rect.on('dblclick', () => {
-                
-                            addTextbox();
-                
-                          });
-                
-                
-                          window.rect = rect;
-                
-                          rect.on('mouseover touchstart', function () {
-                            this.fill('blue');
-                            window.layer.draw();
-                          });
-                
-                          rect.on('mouseout touchend', function () {
-                            this.fill('red');
-                            window.layer.draw();
-                          });
-                          rect.addEventListener('click', function (e) {
-                            window.addEventListener('keypress', function (e) {
-                
-                              if (e.key == 'd') {
-                                rect.remove()
-                                window.layer.draw();
-                              }
-                
-                            });
-                
-                          });
-                          window.stage.on('click', function (e) {
-                            //if click on empty area - remove all transformers
-                            if (e.target === stage) {
-                              window.stage.find('Transformer').destroy();
-                              window.layer.draw();
-                              return;
-                            }
-                            // // do nothing if clicked NOT on our rectangles
-                            if (!e.target === rect) {
-                              return;
-                            }
-                
-                            // remove old transformers
-                            // TODO: we can skip it if current rect is already selected
-                            window.stage.find('Transformer').destroy();
-                
-                            // create new transformer
-                            var tr = new Konva.Transformer();
-                            window.layer.add(tr);
-                            tr.attachTo(e.target);
-                            window.layer.draw();
-                
-                
-                          });
-                
-                
-                
-                          var listOfShapes = new Array();
-                          let j = { id: "", type: "", value: "", x: "", y: "", stage: [] };
-                          j.id = window.elId;
-                          //j.type = 'shape';
-                          // j.value = circle.attrs.fill;
-                          // j.x = circle.attrs.x;
-                          // j.y = circle.attrs.y;
-                
-                          window.layer.add(window.rect);
-                          window.stage.add(window.layer);
-                          window.layer.draw();
-                
-                          j.stage = window.stage.toJSON();
-                          listOfShapes.push(j)
-                
-                          window.listOfShapes = listOfShapes;
-                          console.log(listOfShapes)
-                
-                        }
-                
-                
-                
-                
-                        function NewGuid() {
-                          var sGuid = "";
-                          for (var i = 0; i < 32; i++) {
-                            sGuid += Math.floor(Math.random() * 0xF).toString(0xF);
-                          }
-                
-                          return sGuid;
-                        }
-                
-                        document.getElementById("Circle").addEventListener('click', addCircle);
-                        document.getElementById("Box").addEventListener('click', addBox);
-                        document.getElementById("addTitle").addEventListener('click', addTextbox);
-                
-                
-                
-                
-                        function addTextbox() {
-                          var elId = ''
-                          elId = NewGuid();
-                          window.elId1 = elId;
-                
-                          var textNode = new Konva.Text({
-                            text: 'Some text here',
-                            x: 50,
-                            y: 80,
-                            fontSize: 20,
-                            draggable: true,
-                            width: 200,
-                            position: 'absolute',
-                            id: elId
-                          });
-                
-                          window.textNode = textNode;
-                          window.layer.add(window.textNode);
-                          window.layer.draw();
-                
-                          window.stage.add(window.layer);
-                          var tr = new Konva.Transformer({
-                            node: textNode,
-                            enabledAnchors: ['middle-left', 'middle-right'],
-                            // set minimum width of text
-                            boundBoxFunc: function (oldBox, newBox) {
-                              newBox.width = Math.max(30, newBox.width);
-                              return newBox;
-                            }
-                          });
-                
-                          window.textNode.on('transform', function () {
-                            // reset scale, so only with is changing by transformer
-                            window.textNode.setAttrs({
-                              width: window.textNode.width() * textNode.scaleX(),
-                              scaleX: 1
-                            });
-                          });
-                
-                          window.layer.add(tr);
-                
-                          window.layer.draw();
-                          window.stage.add(window.layer);
-                
-                          window.layer.on('dblclick', () => {
-                            // hide text node and transformer:
-                            window.textNode.hide();
-                            tr.hide();
-                            window.layer.draw();
-                
-                            // create textarea over canvas with absolute position
-                            // first we need to find position for textarea
-                            // how to find it?
-                
-                            // at first lets find position of text node relative to the stage:
-                            var textPosition = window.textNode.absolutePosition();
-                
-                            // then lets find position of stage container on the page:
-                            var stageBox = window.stage.container().getBoundingClientRect();
-                
-                            // so position of textarea will be the sum of positions above:
-                            var areaPosition = {
-                              x: stageBox.left + textPosition.x,
-                              y: stageBox.top + textPosition.y
-                            };
-                
-                            // create textarea and style it
-                            var textarea = document.createElement('textarea');
-                            document.body.appendChild(textarea);
-                
-                            // apply many styles to match text on canvas as close as possible
-                            // remember that text rendering on canvas and on the textarea can be different
-                            // and sometimes it is hard to make it 100% the same. But we will try...
-                            textarea.value = textNode.text();
-                            textarea.style.position = 'absolute';
-                            textarea.style.top = areaPosition.y + 'px';
-                            textarea.style.left = areaPosition.x + 'px';
-                            textarea.style.width = textNode.width() - textNode.padding() * 2 + 'px';
-                            textarea.style.height =
-                              textNode.height() - textNode.padding() * 2 + 5 + 'px';
-                            textarea.style.fontSize = textNode.fontSize() + 'px';
-                            textarea.style.border = 'none';
-                            textarea.style.padding = '0px';
-                            textarea.style.margin = '0px';
-                            textarea.style.overflow = 'hidden';
-                            textarea.style.background = 'none';
-                            textarea.style.outline = 'none';
-                            textarea.style.resize = 'none';
-                            textarea.style.lineHeight = textNode.lineHeight();
-                            textarea.style.fontFamily = textNode.fontFamily();
-                            textarea.style.transformOrigin = 'left top';
-                            textarea.style.textAlign = textNode.align();
-                            textarea.style.color = textNode.fill();
-                            rotation = textNode.rotation();
-                            var transform = '';
-                            if (rotation) {
-                              transform += 'rotateZ(' + rotation + 'deg)';
-                            }
-                
-                            var px = 0;
-                            // also we need to slightly move textarea on firefox
-                            // because it jumps a bit
-                            var isFirefox =
-                              navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-                            if (isFirefox) {
-                              px += 2 + Math.round(textNode.fontSize() / 20);
-                            }
-                            transform += 'translateY(-' + px + 'px)';
-                
-                            textarea.style.transform = transform;
-                
-                            // reset height
-                            textarea.style.height = 'auto';
-                            // after browsers resized it we can set actual value
-                            textarea.style.height = textarea.scrollHeight + 3 + 'px';
-                
-                            textarea.focus();
-                
-                            function removeTextarea() {
-                              textarea.parentNode.removeChild(textarea);
-                              window.removeEventListener('click', handleOutsideClick);
-                              textNode.show();
-                              tr.show();
-                              tr.forceUpdate();
-                              window.layer.draw();
-                            }
-                
-                            function setTextareaWidth(newWidth) {
-                              if (!newWidth) {
-                                // set width for placeholder
-                                newWidth = textNode.placeholder.length * textNode.fontSize();
-                              }
-                              // some extra fixes on different browsers
-                              var isSafari = /^((?!chrome|android).)*safari/i.test(
-                                navigator.userAgent
-                              );
-                              var isFirefox =
-                                navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-                              if (isSafari || isFirefox) {
-                                newWidth = Math.ceil(newWidth);
-                              }
-                
-                              var isEdge =
-                                document.documentMode || /Edge/.test(navigator.userAgent);
-                              if (isEdge) {
-                                newWidth += 1;
-                              }
-                              textarea.style.width = newWidth + 'px';
-                            }
-                            window.textNode.addEventListener('dblclick', function (e) {
-                              console.log('dddddddddddddddddddd')
-                              textNode.text(textarea.value);
-                              console.log(window.textNode.text())
-                              window.layer.add(textNode)
-                              console.log(window.layer)
-                              window.stage.add(window.layer)
-                              console.log(window.stage)
-                            });
-                            textarea.addEventListener('keydown', function (e) {
-                              // hide on enter
-                              // but don't hide on shift + enter
-                              if (e.keyCode === 13 && !e.shiftKey) {
-                                textNode.text(textarea.value);
-                                removeTextarea();
-                              }
-                              // on esc do not set value back to node
-                              if (e.keyCode === 27) {
-                                removeTextarea();
-                              }
-                            });
-                
-                
-                
-                            textarea.addEventListener('keydown', function (e) {
-                              scale = textNode.getAbsoluteScale().x;
-                              setTextareaWidth(textNode.width() * scale);
-                              textarea.style.height = 'auto';
-                              textarea.style.height =
-                                textarea.scrollHeight + textNode.fontSize() + 'px';
-                            });
-                
-                            function handleOutsideClick(e) {
-                              if (e.target !== textarea) {
-                                textNode.text(textarea.value);
-                                removeTextarea();
-                              }
-                            }
-                            setTimeout(() => {
-                              window.addEventListener('click', handleOutsideClick);
-                            });
-                          });
-                
-                          var listOfShapes = new Array();
-                          let j = { id: "", type: "", value: "", x: "", y: "", stage: [] };
-                          j.id = window.elId;
-                          j.type = textNode.text();
-                          console.log(textNode.text)
-                          // j.value = circle.attrs.fill;
-                          // j.x = circle.attrs.x;
-                          // j.y = circle.attrs.y;
-                
-                          // window.layer.add(textNode);
-                          // window.stage.add(window.layer);
-                          // window.layer.draw();
-                
-                          j.stage = window.stage.toJSON();
-                          listOfShapes.push(j)
-                
-                          window.listOfShapes = listOfShapes;
-                          console.log(listOfShapes)
-                
-                
-                
-                          // var nameOfClass = NewGuid();
-                          // var form = document.getElementById("track");
-                          // var input = document.createElement("textarea");
-                          // input.id = nameOfClass
-                          // input.type = "text";
-                          // input.value = "This is input box";
-                          // input.focus();
-                          // var br = document.createElement("br");
-                          // form.appendChild(input);
-                          // form.appendChild(br);
-                
-                          // $('#' + nameOfClass).resizable({ cancel: null }); //adds a new parent to #class
-                          // $('#' + nameOfClass).parent().draggable({ cancel: null });  //makes the new parent draggable
-                          // $('#' + nameOfClass).focus();
-                
-                          // $('#' + nameOfClass).parent().parent().draggable({ cancel: null });
-                          // $('#' + nameOfClass).css("display","inline-block");
-                          // //$('#' + nameOfClass).css("left","10px");
-                
-                          // //input.style.position = 'absolute';  // position it
-                          // // input.style.left = '100px';
-                          // // input.style.top = '100px'; 
-                
-                          // window.id = nameOfClass;
-                          // console.log(window.id)
-                
-                        }
-                        Array.prototype.contains = Array.prototype.contains || function (obj) {
-                          var i, l = this.length;
-                          for (i = 0; i < l; i++) {
-                            if (this[i].id == obj.id) return true;
-                          }
-                          return false;
-                        };
-                
-                        function getPosition(id) {
-                          console.log(id)
-                
-                          var rect = document.getElementById(id)
-                
-                          position = $(rect).offset();
-                          var x = position.left;
-                          var y = position.top;
-                          console.log('pozicija je ' + x, y)
-                          return {
-                            x,
-                            y
-                          }
-                
-                        }
-                
-                
-                        document.getElementById("savePresentation").addEventListener('click', postSlide);
-                        var arrayname = new Array();
-                
-                        var clickedOnce = false;
-                        let resPost;
-                        var _id = '';
-                        var y;
-                        function postSlide(e) {
-                
-                
-                          var x = $("#container :input");
-                
-                          window.x = x;
-                
-                          console.log(window.x)
-                
-                          $(window.x).change(function () {
-                            console.log('promjeniiiiiiiiiiiiiii')
-                            y = $("#container :input");
-                            window.x = y;
-                            console.log(y)
-                          });
-                
-                          var list = window.x
-                
-                          if (window.listOfShapes != undefined) {
-                            var list = $.merge(window.x, window.listOfShapes);
-                
-                          }
-                
-                          $.each(list, function (index, element) {
-                            let i = { id: "", type: "", value: "", x: "", y: "" };
-                            console.log(' | id: ' + element.id);
-                            console.log(' | type: ' + element.type);
-                            console.log(' | value: ' + element.value);
-                            // console.log('x | :' + getPosition(element.id).x);
-                            // console.log('x | :' + getPosition(element.id).y);
-                
-                
-                            i.id = element.id;
-                            i.type = element.type;
-                            i.value = element.value;
-                            if (i.type == 'textarea') {
-                              i.x = getPosition(element.id).x;
-                              i.y = getPosition(element.id).y;
-                            }
-                            else {
-                              i.x = element.x;
-                              i.y = element.y;
-                              i.stage = element.stage;
-                            }
-                
-                
-                
-                            if (i.type != 'submit') {
-                              if (arrayname.contains(i)) {
-                                var idx = arrayname.indexOf(i);
-                                console.log(i, index)
-                                arrayname.splice(idx - 1, 1);
-                                //arrayname.pop(i)
-                              }
-                
-                              console.log(i)
-                              arrayname.push(i);
-                
-                
-                              arrayname.concat(arrayname)
-                            }
-                
-                
-                
-                
-                
-                
-                          })
-                          $.each(arrayname, function (index, element) {
-                            console.log(element)
-                          })
-                          if (!clickedOnce) {
-                            clickedOnce = true;
-                            axios.post('http://localhost:3000/api/slides', {
-                
-                              elements: arrayname
-                            })
-                              .then((res) => {
-                                console.log(`statusCode: ${res.statusCode}`)
-                                console.log(res.data)
-                                _id = res.data._id
-                                resPost = res;
-                              })
-                              .catch((error) => {
-                                console.error(error)
-                              })
-                
-                
-                          }
-                          else {
-                
-                            console.log('iz puta')
-                            console.log(_id)
-                
-                            axios.put('http://localhost:3000/api/slides/' + _id, {
-                
-                              elements: arrayname
-                            })
-                              .then((res) => {
-                                console.log(`statusCode: ${res.statusCode}`)
-                                console.log(res)
-                              })
-                              .catch((error) => {
-                                console.error(error)
-                              })
-                
-                          }
-                        }
-                
-                
-                
-                
-                
-                      </script>
-                
-                    <!-- </section> -->
-                
-                
-                
-                
-                
-                </div>
-              </div>
-            </div>
-           
-          </div>
-          <div class="row">
-            <div class="col-lg-6 mb-4">
               <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="text-primary font-weight-bold m-0">Quiz Competitions</h6>
-                </div>
-                <div class="card-body">
-                  <h4 class="small font-weight-bold">Server migration<span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                      style="width: 20%;"><span class="sr-only">20%</span></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Sales tracking<span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                      style="width: 40%;"><span class="sr-only">40%</span></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Customer Database<span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                      style="width: 60%;"><span class="sr-only">60%</span></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details<span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                      style="width: 80%;"><span class="sr-only">80%</span></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Account setup<span class="float-right">Complete!</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                      style="width: 100%;"><span class="sr-only">100%</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="card shadow mb-4">
-                <ul class="list-group list-group-flush"></ul>
-              </div>
-            </div>
+               
+                  <div class="card-body" id="container123" style="height: 426px;color: rgb(255,255,255);width: 639px;">
+                  
+                     
+                   </div>
+               
 
-          </div>
-        </div>
+                <!-- <div class="card-body"  id="container" style="height: 826px;color: rgb(255,255,255);width: 639px; background-color:black"></div> -->
+              </div>
+            </div>
+            <div class="col-lg-5 col-xl-4"
+              style="width: 99px;background-color: #eaebef;color: rgb(255,255,255);height: 428px;"><a
+                href="index.html"></a>
+              <div id="minimal-tabs">
+                <ul class="nav nav-tabs" style="color: rgb(255,255,255);">
+                  <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="tab1" href="#tab-1"
+                      style="color: rgb(24,135,213);">Content</a></li>
+                  <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="tab2" href="#tab-2"
+                      style="color: rgb(19,141,228);">Type</a></li>
+                </ul>
+                <div class="tab-content" style="color: rgb(248,249,252);width: 302px;height: 710px;">
+                  <div class="tab-pane" role="tabpanel" id="tab-1">
+                    <br>
+                    <div class="col-md-6 col-xl-3 mb-4">
+                      <div class="card shadow border-left-warning py-2">
+                        <div class="card-body" id="addTitle">
+                          <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                              <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Add
+                                  text</span></div>
+                              <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
+                            </div>
+                            <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" role="tabpanel" id="tab-2">
+                    <div id="tab2"><h1>maaaaa</h1></div>
+                  </div>
+                  <div class="tab-pane" role="tabpanel" id="tab-3"></div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
       </div>
-    </div>
+      <footer class="bg-white sticky-footer">
+        <div class="container my-auto">
+          <div class="text-center my-auto copyright"><span>Copyright © Brand 2019</span></div>
+        </div>
+      </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
   </div>
-  <footer class="bg-white sticky-footer">
-    <div class="container my-auto">
-      <div class="text-center my-auto copyright"><span>Copyright © Brand 2019</span></div>
-    </div>
-  </footer>
-  </div>
-  <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+
   <script src="/assets/js/jquery.min.js"></script>
   <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="/assets/js/chart.min.js"></script>
@@ -1081,23 +301,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
   <script src="/assets/js/theme.js"></script>
 
-    <!-- Required JS files. -->
-    <script src="/jquery.min.js"></script>
-    <script src="/core/deck.core.js"></script>
-  
-    <!-- Extension JS files. Add or remove as needed. -->
-    <script src="/extensions/menu/deck.menu.js"></script>
-    <script src="/extensions/goto/deck.goto.js"></script>
-    <script src="/extensions/status/deck.status.js"></script>
-    <script src="/extensions/navigation/deck.navigation.js"></script>
-    <script src="/extensions/scale/deck.scale.js"></script>
-  
-    <!-- Initialize the deck. You can put this in an external file if desired. -->
-    <script>
-      $(function () {
-        $.deck('.slide');
-      });
-    </script>
+  <!-- Required JS files. -->
+  <script src="/scripts/helper.js"></script>
+  <script src="/scripts/konva.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script src="/jquery.min.js"></script>
+  <script src="/core/deck.core.js"></script>
+
+  <!-- Extension JS files. Add or remove as needed. -->
+  <script src="/extensions/menu/deck.menu.js"></script>
+  <script src="/extensions/goto/deck.goto.js"></script>
+  <script src="/extensions/status/deck.status.js"></script>
+  <script src="/extensions/navigation/deck.navigation.js"></script>
+  <script src="/extensions/scale/deck.scale.js"></script>
+
+  <!-- Initialize the deck. You can put this in an external file if desired. -->
+  <script>
+    $(function () {
+      $.deck('.slide');
+    });
+  </script>
 </body>
 
 </html>
