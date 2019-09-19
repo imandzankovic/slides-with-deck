@@ -1,4 +1,12 @@
+
+
+
 document.getElementById("addTitle").addEventListener('click', addText);
+document.getElementById("addGraph").addEventListener('click', addGraph);
+
+function isEmpty(value){
+  return (value == null || value == undefined );
+}
 
 function addText() {
 
@@ -8,84 +16,125 @@ function addText() {
 
   var nameOfClass = NewGuid();
 
-
-
+  
   var form = document.getElementById("container123");
   var section = document.createElement("section");
+  var h2 = document.createElement("h2");
   section.classList.add("slide");
-  var input = document.createElement("h2");
-
-  input.id = nameOfClass
-
-  input.innerHTML = "Description";
-  section.appendChild(input)
-  var br = document.createElement("br");
+  h2.classList.add("title");
+  section.appendChild(h2)
   form.appendChild(section)
-  //form.appendChild(input);
-  form.appendChild(br);
-  showTab(input);
 
-  // $('#' + nameOfClass).attr('contenteditable','true');
-
-  $('#' + nameOfClass).on('click', newPerson)
-  // input.style.left = '100px';
+var tab2 = document.getElementById("tab2");
+  var input = document.createElement("input");
+  input.type='text'
+  input.id = nameOfClass;
   input.style.fontFamily = 'Nunito';
   input.style.color = 'black';
+  input.value='your title'
+  h2.innerHTML=input.value;
+  input.onkeyup=function(){
+    h2.innerHTML=input.value;
+  }
+  //input.innerHTML = "Your text";
+  tab2.appendChild(input)
+  $('a[href="#tabs-2"]').click();
 
   window.id = nameOfClass;
   console.log(window.id)
+ 
+  //document.getElementById('tab2').innerHTML = input.innerHTML;
+ 
+  
+}
+function rednerChart(h2,h2a){
 
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2", // "light1", "light2", "dark1", "dark2"
+    title:{
+      text: ""
+    },
+    axisY: {
+      title: ""
+    },
+    data: [{        
+      type: "column",  
+      showInLegend: true, 
+      legendMarkerColor: "grey",
+      legendText: "",
+      dataPoints: [      
+       
+        { y: 0, label: isEmpty( h2) ?  "Option 1" : h2.innerHTML  },
+        { y: 0,  label: isEmpty(h2a) ? "Option 2" : h2a.innerHTML  }
+       
+      ]
+      
+    }]
+  });
+  chart.render();
+}
+function createInput(no){ 
+  var elId = ''
+  elId = NewGuid();
+  window.elId1 = elId;
+
+  var nameOfClass = NewGuid();
+  var input = document.createElement("input");
+  input.type='text';
+  input.id = nameOfClass;
+  input.classList.add("input");
+  input.style.fontFamily = 'Nunito';
+  input.style.color = 'black';
+  input.value='Option ' + no;
+  return input;
 }
 
-// // function setActive(i) {
-// //   $('#'+i).addClass("active");
-// // }
-function showTab(input) {
-
-  var form = document.getElementById("tab-2");
-
-
-  var tabContent2 = document.getElementById("tab2");
-  tabContent2.classList.add("active")
-  document.getElementById("tab1").classList.remove("active")
-  form.innerHTML = '<h2>' + Sanja + '</h2>';
+function addGraph() {
+ 
+  var form = document.getElementById("chartContainer");
+  var section = document.createElement("section");
+  var h2 = document.createElement("h2");
+  var h2a = document.createElement("h2");
+  
+  section.classList.add("slide");
+ 
 
 
-  //tabContent2.appendChild(input)
-  console.log(input)
+  var tab2 = document.getElementById("tab2");
+  var input=createInput(1);
+  var inputA=createInput(2);
+  
+  form.appendChild(section)
+  h2.innerHTML=input.value;
+  h2a.innerHTML=inputA.value;
 
-}
-// document.getElementById("tab1").addEventListener('click',showTab1)
+  rednerChart(h2,h2a);
+  
+    
+    // $("#chartContainer").CanvasJSChart(options); 
+    $('a[href="#tabs-2"]').click();
 
-// function showTab1(){
 
-//  var form1 = document.getElementById("tab1");
-//  form1.classList.add("active")
-//  document.getElementById("tab-1");
+  
+  input.onkeyup=function(){
+    h2.innerHTML=input.value;
+    window.i1=h2;
+    rednerChart(h2,window.i2);
 
-//  var form = document.getElementById("tab2"); 
-//  if(form.classList.contains("active")){
-//    form.classList.remove("active")
-//  }
+  }
+  inputA.onkeyup=function(){
+    h2a.innerHTML=inputA.value;
+    window.i2=h2a;
+    rednerChart(window.i1,h2a);
 
-//   // var section = document.createElement("section");
-//   // section.classList.add("slide");
-//   // var input =document.createElement("h2");
-//   // input.id = 'fsfsdfsdfs'
+  }
+  //input.innerHTML = "Your text";
+  tab2.appendChild(input)
+  tab2.appendChild(inputA)
 
-//   // input.innerHTML = "tab2";
-//   // section.appendChild(input)
-//   // var br = document.createElement("br");
-//   // form.appendChild(section)
-//   // //form.appendChild(input);
-//   // form.appendChild(br);
 
-// }
 
-function newPerson() {
-  var text = $('#' + window.id).text();
-  // if (text == 'Des'){
-  //     $('#toptitle').text('New Word');
-  // }
-  console.log(text)
+
+  
 }

@@ -5,6 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>Dashboard - Brand</title>
+  <!--graphs-->
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -28,7 +33,12 @@
 
   <!-- Basic black and white print styles -->
   <link rel="stylesheet" media="print" href="/core/print.css">
-
+  
+  <!--graphs-->
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+  
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -36,7 +46,12 @@
   <!-- Required Modernizr file -->
   <script src="/modernizr.custom.js"></script>
 
-
+ 
+  <script>
+    $(function () {
+      $("#minimal-tabs").tabs({ active: 0 });
+    });
+  </script>
 
 
 </head>
@@ -223,27 +238,28 @@
             <div class="col-md-6 col-xl-3 mb-4">
               <div class="card shadow border-left-primary py-2">
                 <div class="card-body">
-                  <div class="row align-items-center no-gutters">
-                    <div class="col mr-2">
-
-                      <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Add text</span></div>
-                      <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
-                    </div>
-                    <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
-                  </div>
-                </div>
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>ADD CHART</span></div>
+                                        <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
+                                    </div>
+                                    <div class="col-auto"><i class="fas fa-chart-bar fa-2x text-gray-300"></i></div>
+                                </div>
+                            </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-7 col-xl-8">
               <div class="card shadow mb-4">
-               
-                  <div class="card-body" id="container123" style="height: 426px;color: rgb(255,255,255);width: 639px;">
-                  
-                     
-                   </div>
-               
+
+                <div class="card-body" id="container123" style="height: 426px;color: rgb(255,255,255);width: 639px;">
+
+                    <div id="chartContainer" style="height: 300px; width: 350px;"></div>
+           
+  
+                </div>
+
 
                 <!-- <div class="card-body"  id="container" style="height: 826px;color: rgb(255,255,255);width: 639px; background-color:black"></div> -->
               </div>
@@ -253,13 +269,22 @@
                 href="index.html"></a>
               <div id="minimal-tabs">
                 <ul class="nav nav-tabs" style="color: rgb(255,255,255);">
-                  <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="tab1" href="#tab-1"
-                      style="color: rgb(24,135,213);">Content</a></li>
-                  <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="tab2" href="#tab-2"
-                      style="color: rgb(19,141,228);">Type</a></li>
+                  <li class="nav-item">
+                    <!-- <a class="nav-link" role="tab" data-toggle="tab" id="tab1" href="#tab-1"
+                      style="color: rgb(24,135,213);">Content</a> -->
+
+                    <a class="nav-link" role="tab" data-toggle="tab" href="#tabs-1"
+                      style="color: rgb(24,135,213);">Content</a>
+                  </li>
+                  <li class="nav-item">
+                    <!-- <a class="nav-link" role="tab" data-toggle="tab" id="tab2" href="#tab-2"
+                      style="color: rgb(19,141,228);">Type</a> -->
+                    <a class="nav-link" role="tab" data-toggle="tab" href="#tabs-2"
+                      style="color: rgb(19,141,228);">Type</a>
+                  </li>
                 </ul>
                 <div class="tab-content" style="color: rgb(248,249,252);width: 302px;height: 710px;">
-                  <div class="tab-pane" role="tabpanel" id="tab-1">
+                  <div class="tab-pane" role="tabpanel" id="tabs-1">
                     <br>
                     <div class="col-md-6 col-xl-3 mb-4">
                       <div class="card shadow border-left-warning py-2">
@@ -270,21 +295,44 @@
                                   text</span></div>
                               <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
                             </div>
+                          
                             <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
                           </div>
-                        </div>
+                        </div>                    
                       </div>
                     </div>
+                    <br>
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card shadow border-left-primary py-2">
+                            <div class="card-body"  id="addGraph">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>ADD CHART</span></div>
+                                        <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
+                                    </div>
+                                    <div class="col-auto"><i class="fas fa-chart-bar fa-2x text-gray-300"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                   </div>
-                  <div class="tab-pane" role="tabpanel" id="tab-2">
-                    <div id="tab2"><h1>maaaaa</h1></div>
+                  <div class="tab-pane" role="tabpanel" id="tabs-2">
+                    <br>
+          
+                    <div class="input-group" id="tab2">
+                        <br>
+                      </div>
                   </div>
                   <div class="tab-pane" role="tabpanel" id="tab-3"></div>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
+                </div>
+              </div>
+
+              <!--ovdje-->
+
+              <!--kraj-->
+            </div>
+          </div>
+        </div>
       </div>
       <footer class="bg-white sticky-footer">
         <div class="container my-auto">
@@ -294,7 +342,7 @@
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
   </div>
 
-  <script src="/assets/js/jquery.min.js"></script>
+  <!-- <script src="/assets/js/jquery.min.js"></script> -->
   <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="/assets/js/chart.min.js"></script>
   <script src="/assets/js/bs-charts.js"></script>
@@ -305,7 +353,7 @@
   <script src="/scripts/helper.js"></script>
   <script src="/scripts/konva.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-  <script src="/jquery.min.js"></script>
+  <!-- <script src="/jquery.min.js"></script> -->
   <script src="/core/deck.core.js"></script>
 
   <!-- Extension JS files. Add or remove as needed. -->
