@@ -5,8 +5,7 @@ window.onload = function () {
     var stage = new Konva.Stage({
         container: 'container',
         width: 400,
-        height: 400
-       
+        height: 400              
     });
 
     var layer = new Konva.Layer();
