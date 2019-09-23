@@ -1,6 +1,37 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Slide = require('../slides/slideModel');
+var Slide=require('../slides/slideModel');
+
+
+var ElementSchema = new Schema({
+    id:{
+        type: String
+    },
+    x: {
+        type: Number
+    },
+    y: {
+        type: Number
+    },
+    type: {
+        type: String
+        //default:'title'
+    },
+    value: {
+        type: String
+        //default:'value'
+    }
+   
+    
+});
+var SlidesSchema = new Schema({
+    slide: {
+        type: String
+    },
+    elements : [ElementSchema]
+});
+
+
 var PresentationSchema = new Schema({
     name: {
         type: String
@@ -8,7 +39,7 @@ var PresentationSchema = new Schema({
     title: {
         type: String
     },
-    slides: [Slide.schema]
+    slides: [SlidesSchema]
 
 });
 

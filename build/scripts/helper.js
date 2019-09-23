@@ -1,32 +1,31 @@
 
+let resPresentation;
+var _pId = '';
+document.getElementById("newPresentation").addEventListener('click', function () {
+
+    axios.post('http://localhost:3000/api/presentation', {
+
+        title: 'New Presentation',
+        slides: []
+    })
+        .then((res) => {
+            console.log(`statusCode: ${res.statusCode}`)
+            console.log(res.data)
+            _pId = res.data._id
+            resPresentation = res;
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+
+
+})
+
 
 document.getElementById("preview").addEventListener('click', function () {
 
-    window.open('http://localhost:3000/api/slides');
+    window.open('http://localhost:3000/api/presentation/' + _pId);
 });
-
-
-function addBox() {
-
-    var listOfShapes = new Array();
-    let j = { id: "", type: "", value: "", x: "", y: "", stage: [] };
-    j.id = window.elId;
-    //j.type = 'shape';
-    // j.value = circle.attrs.fill;
-    // j.x = circle.attrs.x;
-    // j.y = circle.attrs.y;
-
-    window.layer.add(window.rect);
-    window.stage.add(window.layer);
-    window.layer.draw();
-
-    j.stage = window.stage.toJSON();
-    listOfShapes.push(j)
-
-    window.listOfShapes = listOfShapes;
-    console.log(listOfShapes)
-
-}
 
 
 function NewGuid() {
@@ -38,66 +37,7 @@ function NewGuid() {
     return sGuid;
 }
 
-// document.getElementById("Circle").addEventListener('click', addCircle);
-// document.getElementById("Box").addEventListener('click', addBox);
-//document.getElementById("addTitle").addEventListener('click', addTextbox);
 
-
-
-
-function addTextbox() {
-    var elId = ''
-    elId = NewGuid();
-    window.elId1 = elId;
-
-    var listOfShapes = new Array();
-    let j = { id: "", type: "", value: "", x: "", y: "", stage: [] };
-    j.id = window.elId;
-    j.type = textNode.text();
-    console.log(textNode.text)
-    // j.value = circle.attrs.fill;
-    // j.x = circle.attrs.x;
-    // j.y = circle.attrs.y;
-
-    // window.layer.add(textNode);
-    // window.stage.add(window.layer);
-    // window.layer.draw();
-
-    j.stage = window.stage.toJSON();
-    listOfShapes.push(j)
-
-    window.listOfShapes = listOfShapes;
-    console.log(listOfShapes)
-
-
-
-    // var nameOfClass = NewGuid();
-    // var form = document.getElementById("track");
-    // var input = document.createElement("textarea");
-    // input.id = nameOfClass
-    // input.type = "text";
-    // input.value = "This is input box";
-    // input.focus();
-    // var br = document.createElement("br");
-    // form.appendChild(input);
-    // form.appendChild(br);
-
-    // $('#' + nameOfClass).resizable({ cancel: null }); //adds a new parent to #class
-    // $('#' + nameOfClass).parent().draggable({ cancel: null });  //makes the new parent draggable
-    // $('#' + nameOfClass).focus();
-
-    // $('#' + nameOfClass).parent().parent().draggable({ cancel: null });
-    // $('#' + nameOfClass).css("display","inline-block");
-    // //$('#' + nameOfClass).css("left","10px");
-
-    // //input.style.position = 'absolute';  // position it
-    // // input.style.left = '100px';
-    // // input.style.top = '100px'; 
-
-    // window.id = nameOfClass;
-    // console.log(window.id)
-
-}
 Array.prototype.contains = Array.prototype.contains || function (obj) {
     var i, l = this.length;
     for (i = 0; i < l; i++) {
@@ -133,47 +73,55 @@ var y;
 function postSlide(e) {
 
 
-    var x = $("#container :input");
-
+    var x = $('#container123 :header');
+    var y=$('#chartContainer');
     window.x = x;
+    window.y=y;
 
-    console.log(window.x)
+    
 
-    $(window.x).change(function () {
-        console.log('promjeniiiiiiiiiiiiiii')
-        y = $("#container :input");
-        window.x = y;
-        console.log(y)
-    });
+    // $(window.x).change(function () {
+    //     console.log('promjeniiiiiiiiiiiiiii')
+    //     y = $("#container :input");
+    //     window.x = y;
+    //     console.log(y)
+    // });
 
     var list = window.x
 
-    if (window.listOfShapes != undefined) {
-        var list = $.merge(window.x, window.listOfShapes);
+    if (window.y != undefined) {
+        var list = $.merge(window.x, window.y);
 
     }
 
     $.each(list, function (index, element) {
         let i = { id: "", type: "", value: "", x: "", y: "" };
-        console.log(' | id: ' + element.id);
-        console.log(' | type: ' + element.type);
-        console.log(' | value: ' + element.value);
+        // console.log(' | id: ' + element.id);
+        // console.log(' | type: ' + element.type);
+        // console.log(' | value: ' + element.value);
+
+
         // console.log('x | :' + getPosition(element.id).x);
         // console.log('x | :' + getPosition(element.id).y);
 
 
         i.id = element.id;
-        i.type = element.type;
-        i.value = element.value;
-        if (i.type == 'textarea') {
-            i.x = getPosition(element.id).x;
-            i.y = getPosition(element.id).y;
-        }
-        else {
-            i.x = element.x;
-            i.y = element.y;
-            i.stage = element.stage;
-        }
+        i.type = 'h2';
+        i.value = document.getElementById(i.id).innerHTML;
+
+        console.log(' | id: ' + i.id);
+        console.log(' | type: ' + i.type);
+        console.log(' | value: ' + i.value);
+
+        // if (i.type == 'textarea') {
+        i.x = getPosition(element.id).x;
+        i.y = getPosition(element.id).y;
+        // }
+        // else {
+        // i.x = element.x;
+        // i.y = element.y;
+        // i.stage = element.stage;
+        // }
 
 
 
@@ -198,7 +146,7 @@ function postSlide(e) {
     })
     if (!clickedOnce) {
         clickedOnce = true;
-        axios.post('http://localhost:3000/api/slides', {
+        axios.post('http://localhost:3000/api/slides/', {
 
             elements: arrayname
         })
@@ -206,12 +154,25 @@ function postSlide(e) {
                 console.log(`statusCode: ${res.statusCode}`)
                 console.log(res.data)
                 _id = res.data._id
-                resPost = res;
+                resPost = res.data;
+
+                axios.put('http://localhost:3000/api/presentation/' + _pId, {
+                    slides: res.data
+                })
+                    .then((pRes) => {
+                        console.log(`statusCode: ${pRes.statusCode}`)
+                        console.log(pRes.data)
+                        _pId = pRes.data._id
+                        resPresentation = pRes;
+                    })
+                    .catch((error) => {
+                        console.error(error)
+                    })
+
             })
             .catch((error) => {
                 console.error(error)
             })
-
     }
     else {
 
@@ -224,7 +185,22 @@ function postSlide(e) {
         })
             .then((res) => {
                 console.log(`statusCode: ${res.statusCode}`)
-                console.log(res)
+                console.log(res.data)
+                _id = res.data._id
+                putRes = res.data;
+
+                axios.put('http://localhost:3000/api/presentation' + _pId, {
+                    slides: res.data
+                })
+                    .then((pRes) => {
+                        console.log(`statusCode: ${pRes.statusCode}`)
+                        console.log(pRes.data)
+                        _pId = pRes.data._id
+                        resPresentation = pRes;
+                    })
+                    .catch((error) => {
+                        console.error(error)
+                    })
             })
             .catch((error) => {
                 console.error(error)

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
 var ElementSchema = new Schema({
     id:{
         type: String
@@ -17,8 +18,8 @@ var ElementSchema = new Schema({
     value: {
         type: String
         //default:'value'
-    },
-    stage:[]
+    }
+   
     
 });
 var SlidesSchema = new Schema({
@@ -31,4 +32,6 @@ var SlidesSchema = new Schema({
 
 
 module.exports = mongoose.model('slide', SlidesSchema)
+
+
 

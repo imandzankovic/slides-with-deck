@@ -21,7 +21,7 @@ exports.params = function (req, res, next, id) {
 exports.get = function (req, res, next) {
     Slide.find({}, '-__v')
     .then(function (slidesx) {
-        res.render(path.resolve('/Users/Iman/Desktop/deck/test.html'), {
+        res.render(path.resolve('/Users/Iman/Desktop/decki/test.html'), {
         
         //  slides:slides
         slidesx:slidesx
@@ -31,7 +31,7 @@ exports.get = function (req, res, next) {
          
           res.send(memo)
         });
-      //res.send(slidesx)
+     // res.send(slidesx)
      
     }, function (err) {
       next(err);
@@ -43,19 +43,27 @@ exports.getOne = function (req, res, next) {
 };
 
 exports.put = function (req, res, next) {
-  var slide = req.slide;
+  // var slide = req.slide;
 
-  var update = req.body;
+  // console.log(slide)
+  // var update = req.body;
+  // console.log(update)
+  // _.merge(slide, update);
 
-  _.merge(slide, update);
+  // console.log(slide)
+  // slide.save(function (err, saved) {
+  //   if (err) {
+  //     next(err);
+  //   } else {
+  //     res.json(saved);
+  //   }
+  // })
 
-  slide.save(function (err, saved) {
-    if (err) {
-      next(err);
-    } else {
-      res.json(saved);
-    }
-  })
+  Slide.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, slide) {
+    if (err) return next(err);
+    //res.send('Presentation udpated.');
+    res.json(slide);
+});
 };
 
 exports.post = function (req, res, next) {

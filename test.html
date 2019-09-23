@@ -45,39 +45,23 @@
 
 			<section class="slide">
 				<%for(let j=0; j<slidesx[i].elements.length; j++) {%>
-				<% if (slidesx[i].elements[j].stage != '') { %>
-				<div id="container"></div>
+			
+				<div id="container123"></div>
 				<div id="<%= slidesx[i].elements[j].id %>"></div>
 
+				<% if (slidesx[i].elements[j].id == 'chartContainer') { %>
+					<%- slidesx[i].elements[j].value %>
+					
+				  <% } else { %>
 
-				<script>
-					window.onload = function () {
-						var width = window.innerWidth;
-						var height = window.innerHeight;
-						var stage = new Konva.Stage({
-							container: 'container',
-							width: width,
-							height: height
-						});
-
-						var layer = new Konva.Layer();
-						window.layer = layer;
-
-						stage.add(layer);
-						window.stage = stage;
-					}
-					var data = '<%-slidesx[i].elements[j].stage%>';
-					console.log('data je' + data)
-
-
-					// create node using json string
-					var stage = Konva.Node.create(data, '<%= slidesx[i].elements[j].id %>');
-				</script>
-				<!-- <% } else { %>
+				
+			
+		
+				
 				<<%=slidesx[i].elements[j].type %> id="<%= slidesx[i].elements[j].id %>">
 					<%= slidesx[i].elements[j].value %> </<%=slidesx[i].elements[j].type %>>
 
-				<% } %> -->
+					<% } %>
 
 				<script>
 					console.log(id);
@@ -106,7 +90,7 @@
 
 				</script>
 
-				<%}%>	
+				<!-- <%}%>	 -->
 		</section>
 		
 		  <div aria-role="navigation">

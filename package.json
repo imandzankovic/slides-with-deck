@@ -18,7 +18,9 @@
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "jQuery": "^1.7.4",
     "lodash": "^4.17.15",
+    "lodash.merge": "^4.6.2",
     "mongoose": "^5.7.1",
     "nodemon": "^1.19.2",
     "path": "^0.12.7"

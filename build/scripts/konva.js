@@ -51,6 +51,7 @@ function addText() {
 
   //title to be displayed
   var h2 = createElement("h2");
+  setElementId(h2);
   addClass(h2, "title");
 
 
