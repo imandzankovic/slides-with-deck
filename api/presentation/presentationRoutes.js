@@ -13,9 +13,10 @@ router.route('/:id')
   .put(controller.put)
   .delete(controller.delete)
 
-  router.route('/slides/:slideId')
-  .get(slideController.get)
-  .post(slideController.post)
+  // router.route('/slides/:slideId')
+  // .get(slideController.get)
+  // .post(slideController.post)
+
 
   router.route('/:id/slides/:slideId')
   .get(controller.getOne)

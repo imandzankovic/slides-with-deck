@@ -77,12 +77,16 @@ function addText() {
 
 function renderChart(list) {
 
-  console.log('uslo u chart' + list)
+console.log('uslo u chart')
+  $.each(list, function (index, element) {
+    console.log(element)
+  });
+  
 
   var chart = new CanvasJS.Chart("chartContainer",
     {
       title: {
-        text: "Adding dataPoints Dynamically using addTo()"
+        text: "Adding dataPoints Dynamically"
       },
       data: [
         {
@@ -98,10 +102,28 @@ function renderChart(list) {
 
 function makeSection() {
 
+  var buttonDiv = createElement("div");
+  var bDiv = setElementId(buttonDiv);
+
+  var deleteButton = document.createElement("button");
+  deleteButton.innerHTML = 'x';
+  deleteButton.id = setElementId(deleteButton);
   var input = createInput();
 
-  getElementById('tab2').appendChild(input);
-  
+  deleteButton.addEventListener('click', function () {
+    console.log(input.id)
+    removeInput(input.id, deleteButton.id)
+
+    var list=removeFromList(input.id);
+ 
+    renderChart(list);
+
+  })
+
+  buttonDiv.appendChild(input);
+  buttonDiv.appendChild(deleteButton);
+  getElementById('tab2').appendChild(buttonDiv);
+
 
   return input;
 }
@@ -144,41 +166,62 @@ function renderByList(value) {
   return window.listOfShapes;
 }
 
+function removeFromList(id){
+  console.log(id)
+  $.each(window.listOfShapes, function (index, element) {
+    console.log(element)
+
+   
+     var index = window.listOfShapes.findIndex(x => x.id === '#' + id)
+     console.log(index)
+     if(index!= -1)
+     window.listOfShapes.splice(index, 1);
+    
+  });
+  return window.listOfShapes;
+}
+
+function removeInput(id, deleteId) {
+
+  var elem = getElementById(id)
+  var deleteButton = getElementById(deleteId)
+
+  elem.parentElement.removeChild(elem);
+  deleteButton.parentElement.removeChild(deleteButton);
+
+  return false;
+}
+
 function addGraph() {
 
+
   var butNew = document.createElement("button");
-  butNew.innerHTML = 'Add New Column'
+  butNew.innerHTML = 'Add New Column';
+
 
   var tab2 = document.getElementById("tab2");
   tab2.appendChild(butNew);
 
-  butNew.addEventListener('click', function () {
-    var input = makeSection();
-  
 
+  butNew.addEventListener('click', function () {
+    let input = makeSection();
 
     input.onkeyup = function () {
-      //text.innerHTML = input.value;
       update(input);
     }
-
   });
 
   $('a[href="#tabs-2"]').click();
-
 }
+
 
 function update(input) {
 
   var val = $("#" + input.id).get().map(function (i) {
-
     return $(i).val();
 
   })
-
-  console.log(eval)
   var list = renderByList($("#" + input.id).val(val));
   renderChart(list);
-
 
 }
