@@ -74,9 +74,14 @@ function postSlide(e) {
 
 
     var x = $('#container123 :header');
-    var y=$('#chartContainer');
+    //var y=$('#chartContainer');
+
+    var canvas = $("#chartContainer .canvasjs-chart-canvas").get(0);
+    var dataURL = canvas.toDataURL();
+    console.log(dataURL);
+
     window.x = x;
-    window.y=y;
+    window.y=dataURL;
 
     
 
@@ -106,17 +111,20 @@ function postSlide(e) {
 
 
         i.id = element.id;
-        i.type = 'h2';
-        i.value = document.getElementById(i.id).innerHTML;
+        i.type =  $("#" + i.id).tagName == undefined ? 'chart' : 'h2'
+        
+        console.log('iiiiii' + i.type)
+        i.value = document.getElementById(i.id) == null? window.y  : document.getElementById(i.id).innerHTML;
 
         console.log(' | id: ' + i.id);
         console.log(' | type: ' + i.type);
         console.log(' | value: ' + i.value);
 
-        // if (i.type == 'textarea') {
+        
+        if (i.type == 'h2') {
         i.x = getPosition(element.id).x;
         i.y = getPosition(element.id).y;
-        // }
+        }
         // else {
         // i.x = element.x;
         // i.y = element.y;
@@ -189,7 +197,7 @@ function postSlide(e) {
                 _id = res.data._id
                 putRes = res.data;
 
-                axios.put('http://localhost:3000/api/presentation' + _pId, {
+                axios.put('http://localhost:3000/api/presentation/' + _pId, {
                     slides: res.data
                 })
                     .then((pRes) => {

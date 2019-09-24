@@ -45,25 +45,33 @@
 
 			<section class="slide">
 				<%for(let j=0; j<slidesx[i].elements.length; j++) {%>
-			
+
+
+
+				<% if (slidesx[i].elements[j].type == 'chart') { %>
+
 				<div id="container123"></div>
-				<div id="<%= slidesx[i].elements[j].id %>"></div>
+				<div id="<%= slidesx[i].elements[j]._id %>"></div>
 
-				<% if (slidesx[i].elements[j].id == 'chartContainer') { %>
-					<%- slidesx[i].elements[j].value %>
-					
-				  <% } else { %>
 
-				
-			
-		
-				
+				<script>
+					console.log('<%= slidesx[i].elements[j]._id %>');
+					var img = new Image();
+					img.src = '<%= slidesx[i].elements[j].value %>';
+					console.log(img)
+					document.getElementById('<%= slidesx[i].elements[j]._id %>').appendChild(img)
+				</script>
+
+				<% } else { %>
+
+
+
 				<<%=slidesx[i].elements[j].type %> id="<%= slidesx[i].elements[j].id %>">
 					<%= slidesx[i].elements[j].value %> </<%=slidesx[i].elements[j].type %>>
 
-					<% } %>
+				<% } %>
 
-				<script>
+				<!-- <script>
 					console.log(id);
 					if (id = undefined) {
 						var x = '<%= slidesx[i].elements[j].x%>';
@@ -83,40 +91,40 @@
 						var elementStyle = document.getElementById(id).style;
 					}
 
-
+					//canvas.style.display = 'none'
 
 
 					// $('#' + id).css({top: x + 'px', left:  y + 'px', position:'absolute'});
 
-				</script>
+				</script> -->
 
 				<!-- <%}%>	 -->
-		</section>
-		
-		  <div aria-role="navigation">
+			</section>
+
+			<div aria-role="navigation">
 				<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
 				<a href="#" class="deck-next-link" title="Next">&#8594;</a>
-			  </div>
-		  
-			  <!-- deck.status snippet -->
-			  <p class="deck-status" aria-role="status">
+			</div>
+
+			<!-- deck.status snippet -->
+			<p class="deck-status" aria-role="status">
 				<span class="deck-status-current"></span>
 				/
 				<span class="deck-status-total"></span>
-			  </p>
-		  
-			  <!-- deck.goto snippet -->
-			  <form action="." method="get" class="goto-form">
+			</p>
+
+			<!-- deck.goto snippet -->
+			<form action="." method="get" class="goto-form">
 				<label for="goto-slide">Go to slide:</label>
 				<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
 				<datalist id="goto-datalist"></datalist>
 				<input type="submit" value="Go">
-			  </form>
-		  	</div>
-		  
-		  <!-- Required JS files. -->
-		
-			<%}%>
+			</form>
+		</div>
+
+		<!-- Required JS files. -->
+
+		<%}%>
 
 				<script src="/jquery.min.js"></script>
 				<script src="/core/deck.core.js"></script>

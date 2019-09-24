@@ -31,7 +31,7 @@ exports.get = function (req, res, next) {
          
           res.send(memo)
         });
-     // res.send(slidesx)
+      //res.send(slidesx)
      
     }, function (err) {
       next(err);
