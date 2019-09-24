@@ -42,6 +42,8 @@ function setColumnText(h2, input) {
 
 function addText() {
 
+  postSlide('string');
+  
   //get container where content will be displayed
   var form = getElementById("container123");
 
@@ -195,9 +197,10 @@ function removeInput(id, deleteId) {
 
 function addGraph() {
 
+  postSlide('string');
 
   var butNew = document.createElement("button");
-  butNew.innerHTML = 'Add New Column';
+  butNew.innerHTML = 'Add';
 
 
   var tab2 = document.getElementById("tab2");

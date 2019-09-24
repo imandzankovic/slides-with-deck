@@ -21,17 +21,18 @@ exports.params = function (req, res, next, id) {
 exports.get = function (req, res, next) {
     Slide.find({}, '-__v')
     .then(function (slidesx) {
-        res.render(path.resolve('/Users/Iman/Desktop/decki/test.html'), {
+        // res.render(path.resolve('/Users/Iman/Desktop/decki/test.html'), {
         
-        //  slides:slides
-        slidesx:slidesx
+        // //  slides:slides
+        // slidesx:slidesx
 
-        }, function (err, memo) {
-          console.log(err);
+        // }, function (err, memo) {
+        //   console.log(err);
          
-          res.send(memo)
-        });
-      //res.send(slidesx)
+        //   res.send(memo)
+        // });
+      
+      res.send(slidesx)
      
     }, function (err) {
       next(err);
@@ -39,6 +40,7 @@ exports.get = function (req, res, next) {
 };
 exports.getOne = function (req, res, next) {
   var slide = req.slide;
+  console.log(slide)
   res.json(slide);
 };
 
@@ -62,6 +64,7 @@ exports.put = function (req, res, next) {
   Slide.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, slide) {
     if (err) return next(err);
     //res.send('Presentation udpated.');
+    console.log(slide)
     res.json(slide);
 });
 };
