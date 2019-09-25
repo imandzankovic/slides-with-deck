@@ -28,6 +28,7 @@ function createInput() {
   input.style.fontFamily = 'Nunito';
   input.style.color = 'black';
   input.value = 'your title';
+  //addClass(input,"form-control");
 
   return input;
 }
@@ -42,8 +43,8 @@ function setColumnText(h2, input) {
 
 function addText() {
 
-  postSlide('string');
-  
+  //postSlide('string');
+
   //get container where content will be displayed
   var form = getElementById("container123");
 
@@ -65,6 +66,15 @@ function addText() {
 
   //create input for tab2
   var input = createInput();
+
+  input.style.cssText = `border:0px; /*important*/
+  background-color: white; /*important*/
+  position:absolute; /*important*/
+  top:4px;
+  left:9px;
+  width:256px;
+  height:28px;`
+
   setColumnText(h2, input);
 
   tab2.appendChild(input)
@@ -80,11 +90,11 @@ function addText() {
 
 function renderChart(list) {
 
-console.log('uslo u chart')
+  console.log('uslo u chart')
   $.each(list, function (index, element) {
     console.log(element)
   });
-  
+
 
   var chart = new CanvasJS.Chart("chartContainer",
     {
@@ -106,6 +116,15 @@ console.log('uslo u chart')
 function makeSection() {
 
   var buttonDiv = createElement("div");
+  addClass(buttonDiv, 'wrapper');
+  buttonDiv.style.cssText = ` width:310px; /*follow your image's size*/
+  height:40px;/*follow your image's size*/
+  background-repeat:no-repeat; /*important*/
+  padding:0px;
+  top:50px;
+  margin:0px;
+  position:relative; /*important*/`;
+
   var bDiv = setElementId(buttonDiv);
 
   var deleteButton = document.createElement("button");
@@ -113,12 +132,29 @@ function makeSection() {
   deleteButton.id = setElementId(deleteButton);
   var input = createInput();
 
+  input.style.cssText = `border:0px; /*important*/
+  background-color:transparent; /*important*/
+  position:absolute; /*important*/
+  top:4px;
+  left:9px;
+  width:256px;
+  height:28px;`
+
+
+  deleteButton.style.cssText = `border:0px; /*important*/
+  background-color:transparent; /*important*/
+  position:absolute; /*important*/
+  top:4px;
+  left:265px;
+  width:32px;
+  height:28px;`;
+
   deleteButton.addEventListener('click', function () {
     console.log(input.id)
     removeInput(input.id, deleteButton.id)
 
-    var list=removeFromList(input.id);
- 
+    var list = removeFromList(input.id);
+
     renderChart(list);
 
   })
@@ -130,21 +166,6 @@ function makeSection() {
 
   return input;
 }
-
-// function makeSection() {
-
-//   var h2 = createElement('h2');
-//  // h2.style.hidden="true"
-
-//  var input = createInput();
-
-//  getElementById('tab2').appendChild(input);
-//  getElementById('container123').appendChild(h2);
-//  setColumnText(h2, input);
-
-//  return { h2, input };
-// }
-
 function renderByList(value) {
 
 
@@ -169,17 +190,17 @@ function renderByList(value) {
   return window.listOfShapes;
 }
 
-function removeFromList(id){
+function removeFromList(id) {
   console.log(id)
   $.each(window.listOfShapes, function (index, element) {
     console.log(element)
 
-   
-     var index = window.listOfShapes.findIndex(x => x.id === '#' + id)
-     console.log(index)
-     if(index!= -1)
-     window.listOfShapes.splice(index, 1);
-    
+
+    var index = window.listOfShapes.findIndex(x => x.id === '#' + id)
+    console.log(index)
+    if (index != -1)
+      window.listOfShapes.splice(index, 1);
+
   });
   return window.listOfShapes;
 }
@@ -197,10 +218,19 @@ function removeInput(id, deleteId) {
 
 function addGraph() {
 
-  postSlide('string');
+  //postSlide('string');
 
   var butNew = document.createElement("button");
+  $(butNew).addClass('.btn btn-primary btn-block');
   butNew.innerHTML = 'Add';
+
+  butNew.style.cssText = `border:0px; /*important*/
+  background-color:blue; /*important*/
+  position:absolute; /*important*/
+  top:40px;
+  left:9px;
+  width:256px;
+  height:28px;`;
 
 
   var tab2 = document.getElementById("tab2");

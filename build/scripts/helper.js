@@ -22,8 +22,6 @@ document.getElementById("newPresentation").addEventListener('click', function ()
 })
 
 
-
-
 document.getElementById("preview").addEventListener('click', function () {
 
     window.open('http://localhost:3000/api/presentation/' + _pId);
@@ -56,7 +54,7 @@ function getPosition(id) {
     position = $(rect).offset();
     var x = position.left;
     var y = position.top;
-    console.log('pozicija je ' + x, y)
+    //console.log('pozicija je ' + x, y)
     return {
         x,
         y
@@ -68,7 +66,7 @@ function getPosition(id) {
 document.getElementById("savePresentation").addEventListener('click', postSlide);
 var arrayname = new Array();
 
-//var clickedOnce = false;
+var clickedOnce = false;
 let resPost;
 var _id = '';
 var y;
@@ -83,14 +81,10 @@ function postSlide(e) {
     if (canvas != undefined) {
         var dataURL = canvas.toDataURL();
         window.y = dataURL;
-        console.log(dataURL);
+        //console.log(dataURL);
     }
 
-
     window.x = x;
-
-
-
 
 
     // $(window.x).change(function () {
@@ -103,15 +97,18 @@ function postSlide(e) {
     var list = window.x
 
     if (window.y != undefined) {
-        var list = $.merge(window.x, window.y);
+        list.push(window.y)
+        //var list = $.merge(window.x, window.y);
 
     }
 
     $.each(list, function (index, element) {
+        console.log('Element je ' + element)
         let i = { id: "", type: "", value: "", x: "", y: "" };
 
         i.id = element.id;
         i.type = $("#" + i.id).prop('tagName') == 'H2' ? 'h2' : 'chart'
+        console.log(i.type)
         i.value = document.getElementById(i.id) == null ? window.y : document.getElementById(i.id).innerHTML;
 
         console.log(' | id: ' + i.id);
@@ -143,15 +140,17 @@ function postSlide(e) {
             arrayname.push(i);
 
 
-            arrayname.concat(arrayname)
+            //arrayname.concat(arrayname)
         }
 
     })
     $.each(arrayname, function (index, element) {
         console.log(element)
     })
-    if (e === 'string') {
-        console.log(e)
+    
+    if (!clickedOnce) {
+        clickedOnce=true;
+        //console.log(e)
         //e = true;
         axios.post('http://localhost:3000/api/slides/', {
 
@@ -204,7 +203,6 @@ function postSlide(e) {
                     console.log(res)
                     axios.put('http://localhost:3000/api/presentation/' + _pId, {
                         slides: res.data
-
                     })
                         .then((pRes) => {
                             //console.log(`statusCode: ${pRes.statusCode}`)
