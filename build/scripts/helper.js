@@ -201,6 +201,7 @@ function postSlide(e) {
                 axios.get('http://localhost:3000/api/slides/' + _id).then((res) => {
                     console.log('iz geta')
                     console.log(res)
+                    show(res.data);
                     axios.put('http://localhost:3000/api/presentation/' + _pId, {
                         slides: res.data
                     })
@@ -223,6 +224,27 @@ function postSlide(e) {
     }
 }
 
+function show(data){
+    console.log('bieber justin')
+    console.log(data.elements[0])
+    var slides=document.getElementById("slidesWell");
+   
+    var section = document.createElement("section");
+    section.classList.add("slide");
+    section.style.cssText= `background-color:white`;
+    
+  //title to be displayed
+   var h2 = createElement("h2");
+   h2.classList.add("title");
+   h2.id=NewGuid();
 
+   h2.style.cssText='font-size:15px';
+   $('#' + h2.id).css({ top: data.elements[0].x + 'px', left: data.elements[0].y + 'px', position: 'absolute' });
+   h2.innerHTML=data.elements[0].value;
+
+  section.appendChild(h2);
+  slides.appendChild(section);
+    
+}
 
 
