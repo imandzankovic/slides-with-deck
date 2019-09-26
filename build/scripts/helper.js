@@ -147,9 +147,9 @@ function postSlide(e) {
     $.each(arrayname, function (index, element) {
         console.log(element)
     })
-    
+
     if (!clickedOnce) {
-        clickedOnce=true;
+        clickedOnce = true;
         //console.log(e)
         //e = true;
         axios.post('http://localhost:3000/api/slides/', {
@@ -224,27 +224,34 @@ function postSlide(e) {
     }
 }
 
-function show(data){
-    console.log('bieber justin')
-    console.log(data.elements[0])
-    var slides=document.getElementById("slidesWell");
-   
-    var section = document.createElement("section");
-    section.classList.add("slide");
-    section.style.cssText= `background-color:white`;
-    
-  //title to be displayed
-   var h2 = createElement("h2");
-   h2.classList.add("title");
-   h2.id=NewGuid();
+function show(data) {
+    $.each(data.elements, function (index, element) {
+        console.log('bieber justin')
+        console.log(element)
+        var slides = document.getElementById("slidesWell");
 
-   h2.style.cssText='font-size:15px';
-   $('#' + h2.id).css({ top: data.elements[0].x + 'px', left: data.elements[0].y + 'px', position: 'absolute' });
-   h2.innerHTML=data.elements[0].value;
+        var section = document.createElement("section");
+        section.classList.add("slide");
+        section.style.cssText = `background-color:white`;
 
-  section.appendChild(h2);
-  slides.appendChild(section);
-    
+        //title to be displayed
+        var h2 = createElement("h2");
+        h2.classList.add("title");
+        h2.id = NewGuid();
+
+        h2.style.cssText = 'font-size:15px';
+        $('#' + h2.id).css({ top: element.x + 'px', left: element.y + 'px', position: 'absolute' });
+        h2.innerHTML = element.value;
+
+        //create space
+        var br = createElement("br");
+
+        section.appendChild(h2);
+        slides.appendChild(section);
+        slides.appendChild(br);
+    });
+
+
 }
 
 
