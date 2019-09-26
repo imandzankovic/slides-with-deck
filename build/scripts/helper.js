@@ -63,6 +63,29 @@ function getPosition(id) {
 }
 
 
+document.getElementById("addSlide").addEventListener('click', function () {
+    var clicked = true;
+    var counter = 1;
+    counter++;
+    window.counter=counter;
+    window.clicked = clicked;
+    console.log('kliknuo add')
+});
+
+// $("#addSlide").click(function()
+// {
+//    $(this).data('clicked', true);
+// });
+// if(a.data('clicked')){
+//     console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhha')
+// }
+
+$("#savePresentation").click(function () {
+    var clickedSave = true;
+    window.clickedSave = clickedSave;
+    console.log('kliknuo save')
+});
+
 document.getElementById("savePresentation").addEventListener('click', postSlide);
 var arrayname = new Array();
 
@@ -148,10 +171,13 @@ function postSlide(e) {
         console.log(element)
     })
 
-    if (!clickedOnce) {
-        clickedOnce = true;
+    if (window.clicked == true) {
+        window.clicked=false;
+        console.log(window.clickedSave)
+        //clickedOnce = true;
         //console.log(e)
         //e = true;
+        console.log('iz posta - add')
         axios.post('http://localhost:3000/api/slides/', {
 
             elements: arrayname
@@ -159,7 +185,7 @@ function postSlide(e) {
             .then((res) => {
                 console.log(`statusCode: ${res.statusCode}`)
                 console.log(res.data)
-                _id = res.data._id
+                window._id = res.data._id
                 resPost = res.data;
 
                 axios.put('http://localhost:3000/api/presentation/' + _pId, {
@@ -181,50 +207,58 @@ function postSlide(e) {
             })
     }
     else {
+        if (window.clickedSave == true) {
 
 
-        console.log('iz puta')
-        console.log(_id)
+            console.log('iz puta')
+            console.log(_id)
 
-        axios.put('http://localhost:3000/api/slides/' + _id, {
+            axios.put('http://localhost:3000/api/slides/' + window._id, {
 
-            elements: arrayname
-        })
-            .then((res) => {
-                console.log(`statusCode: ${res.statusCode}`)
-                console.log('ovo je od slides')
-                console.log(res.data)
-                _id = res.data._id
-                putr = res.data;
-                console.log('ici u presi ovo' + JSON.stringify(putr));
+                elements: arrayname
+            })
+                .then((res) => {
+                    console.log(`statusCode: ${res.statusCode}`)
+                    console.log('ovo je od slides')
+                    console.log(res.data)
+                    _id = res.data._id
+                    putr = res.data;
+                    console.log('ici u presi ovo' + JSON.stringify(putr));
 
-                axios.get('http://localhost:3000/api/slides/' + _id).then((res) => {
-                    console.log('iz geta')
-                    console.log(res)
-                    show(res.data);
-                    axios.put('http://localhost:3000/api/presentation/' + _pId, {
-                        slides: res.data
+                    axios.get('http://localhost:3000/api/slides/' + _id).then((res) => {
+                        console.log('iz geta')
+                        console.log(res)
+                        show(res.data);
+                        axios.put('http://localhost:3000/api/presentation/' + _pId, {
+                            slides: res.data
+                        })
+                            .then((pRes) => {
+                                //console.log(`statusCode: ${pRes.statusCode}`)
+                                console.log('ovo je od presis')
+                                console.log(pRes.data)
+                                _pId = pRes.data._id
+                                //resPresentation = pRes;
+                            })
+                            .catch((error) => {
+                                console.error(error)
+                            })
                     })
-                        .then((pRes) => {
-                            //console.log(`statusCode: ${pRes.statusCode}`)
-                            console.log('ovo je od presis')
-                            console.log(pRes.data)
-                            _pId = pRes.data._id
-                            //resPresentation = pRes;
-                        })
-                        .catch((error) => {
-                            console.error(error)
-                        })
-                })
 
-            })
-            .catch((error) => {
-                console.error(error)
-            })
+                })
+                .catch((error) => {
+                    console.error(error)
+                })
+        }
     }
 }
 
+// function clear(){
+//     document.getElementById('')
+// }
+
 function show(data) {
+
+    console.log('uslo u show')
     $.each(data.elements, function (index, element) {
         console.log('bieber justin')
         console.log(element)
@@ -234,7 +268,9 @@ function show(data) {
         section.classList.add("slide");
         section.style.cssText = `background-color:white`;
 
-        //title to be displayed
+        if (element.type == 'h2'){
+
+             //title to be displayed
         var h2 = createElement("h2");
         h2.classList.add("title");
         h2.id = NewGuid();
@@ -242,13 +278,27 @@ function show(data) {
         h2.style.cssText = 'font-size:15px';
         $('#' + h2.id).css({ top: element.x + 'px', left: element.y + 'px', position: 'absolute' });
         h2.innerHTML = element.value;
-
+  
         //create space
         var br = createElement("br");
 
         section.appendChild(h2);
         slides.appendChild(section);
         slides.appendChild(br);
+
+        }
+
+        if (element.type == 'chart'){
+
+            var img = new Image();
+					img.src = element.value;
+					console.log(img)
+					slides.appendChild(img)
+        }
+
+       
+
+      
     });
 
 

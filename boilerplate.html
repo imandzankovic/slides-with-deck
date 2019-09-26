@@ -8,7 +8,7 @@
   <!--graphs-->
   <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet"
@@ -33,12 +33,12 @@
 
   <!-- Basic black and white print styles -->
   <link rel="stylesheet" media="print" href="/core/print.css">
-  
+
   <!--graphs-->
   <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-  
-  
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -46,7 +46,7 @@
   <!-- Required Modernizr file -->
   <script src="/modernizr.custom.js"></script>
 
- 
+
   <script>
     $(function () {
       $("#minimal-tabs").tabs({ active: 0 });
@@ -72,7 +72,12 @@
         </ul>
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle"
             type="button"></button></div> -->
-        <div id="slidesWell" style="height: 100px; width:140px;"></div>
+        <div id="slidesWell" style="height: 100px; width:140px; background-color: blanchedalmond"></div>
+        <div id="operations" style="margin-top: 225px" >
+          <button class="btn btn-default" id="addSlide" type="button" style="background-color: blanchedalmond">Add
+            Slide</button>
+        </div>
+
       </div>
     </nav>
     <div class="d-flex flex-column" id="content-wrapper">
@@ -256,9 +261,9 @@
 
                 <div class="card-body" id="container123" style="height: 426px;color: rgb(255,255,255);width: 639px;">
 
-                 
-                    <div id="chartContainer" style="height: 200px; width: 350px;"></div>
-           
+
+                  <div id="chartContainer" style="height: 200px; width: 350px;"></div>
+
                 </div>
 
 
@@ -296,33 +301,34 @@
                                   text</span></div>
                               <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
                             </div>
-                          
+
                             <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
                           </div>
-                        </div>                    
+                        </div>
                       </div>
                     </div>
                     <br>
                     <div class="col-md-6 col-xl-3 mb-4">
-                        <div class="card shadow border-left-primary py-2">
-                            <div class="card-body"  id="addGraph">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col mr-2">
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>ADD CHART</span></div>
-                                        <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
-                                    </div>
-                                    <div class="col-auto"><i class="fas fa-chart-bar fa-2x text-gray-300"></i></div>
-                                </div>
+                      <div class="card shadow border-left-primary py-2">
+                        <div class="card-body" id="addGraph">
+                          <div class="row align-items-center no-gutters">
+                            <div class="col mr-2">
+                              <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>ADD
+                                  CHART</span></div>
+                              <div class="text-dark font-weight-bold h5 mb-0"><span></span></div>
                             </div>
+                            <div class="col-auto"><i class="fas fa-chart-bar fa-2x text-gray-300"></i></div>
+                          </div>
                         </div>
+                      </div>
                     </div>
                   </div>
                   <div class="tab-pane" role="tabpanel" id="tabs-2">
                     <br>
-          
+
                     <div class="input-group" id="tab2">
-                        <br>
-                      </div>
+                      <br>
+                    </div>
                   </div>
                   <div class="tab-pane" role="tabpanel" id="tab-3"></div>
                 </div>
