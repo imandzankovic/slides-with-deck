@@ -217,9 +217,7 @@ function removeInput(id, deleteId) {
 }
 
 function addGraph() {
-
-  //postSlide('string');
-
+  
   var butNew = document.createElement("button");
   $(butNew).addClass('.btn btn-primary btn-block');
   butNew.innerHTML = 'Add';

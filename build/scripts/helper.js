@@ -3,6 +3,7 @@ let resPresentation;
 var _pId = '';
 document.getElementById("newPresentation").addEventListener('click', function () {
 
+    $("#tab-content").toggle();
     axios.post('http://localhost:3000/api/presentation', {
 
         title: 'New Presentation',
@@ -62,23 +63,20 @@ function getPosition(id) {
 
 }
 
-
+var counter = 1;
 document.getElementById("addSlide").addEventListener('click', function () {
     var clicked = true;
-    var counter = 1;
+    console.log('conto je ' + counter);
+    if(counter > 1){
+       $('#container123').html('');       
+       $('.tab-content :input').val('');
+       $('a[href="#tabs-1"]').click();
+    }
     counter++;
     window.counter=counter;
     window.clicked = clicked;
     console.log('kliknuo add')
 });
-
-// $("#addSlide").click(function()
-// {
-//    $(this).data('clicked', true);
-// });
-// if(a.data('clicked')){
-//     console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhha')
-// }
 
 $("#savePresentation").click(function () {
     var clickedSave = true;
@@ -98,25 +96,14 @@ function postSlide(e) {
 
 
     var x = $('#container123 :header');
-    //var y=$('#chartContainer');
 
     var canvas = $("#chartContainer .canvasjs-chart-canvas").get(0);
     if (canvas != undefined) {
         var dataURL = canvas.toDataURL();
-        window.y = dataURL;
-        //console.log(dataURL);
+        window.y = dataURL;     
     }
 
     window.x = x;
-
-
-    // $(window.x).change(function () {
-    //     console.log('promjeniiiiiiiiiiiiiii')
-    //     y = $("#container :input");
-    //     window.x = y;
-    //     console.log(y)
-    // });
-
     var list = window.x
 
     if (window.y != undefined) {
@@ -143,13 +130,6 @@ function postSlide(e) {
             i.x = getPosition(element.id).x;
             i.y = getPosition(element.id).y;
         }
-        // else {
-        // i.x = element.x;
-        // i.y = element.y;
-        // i.stage = element.stage;
-        // }
-
-
 
         if (i.type != 'submit') {
             if (arrayname.contains(i)) {
@@ -252,10 +232,6 @@ function postSlide(e) {
     }
 }
 
-// function clear(){
-//     document.getElementById('')
-// }
-
 function show(data) {
 
     console.log('uslo u show')
@@ -269,8 +245,6 @@ function show(data) {
         section.style.cssText = `background-color:white`;
 
         if (element.type == 'h2'){
-
-             //title to be displayed
         var h2 = createElement("h2");
         h2.classList.add("title");
         h2.id = NewGuid();
@@ -281,27 +255,18 @@ function show(data) {
   
         //create space
         var br = createElement("br");
-
         section.appendChild(h2);
         slides.appendChild(section);
         slides.appendChild(br);
-
         }
 
         if (element.type == 'chart'){
-
             var img = new Image();
 					img.src = element.value;
 					console.log(img)
 					slides.appendChild(img)
-        }
-
-       
-
-      
+        }    
     });
-
-
 }
 
 
