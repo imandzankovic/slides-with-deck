@@ -9,6 +9,7 @@ exports.params = function (req, res, next, id, slideId) {
 
   console.log('SLIIIIIDE' + req.params.slideId)
   Presentation.findById(id)
+  .populate('slide')
     .then(function (presentation) {
       if (!presentation) {
         next(new Error('No presentation with that id'));
@@ -49,6 +50,8 @@ exports.params = function (req, res, next, id, slideId) {
 
 exports.get = function (req, res, next) {
   Presentation.find({}, '-__v')
+  .populate('slide')
+    .exec()
     .then(function (presentations) {
       // res.render(path.resolve('/Users/Iman/Desktop/presis/d.html'), {
 

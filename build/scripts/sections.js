@@ -80,13 +80,11 @@ function addText() {
   tab2.appendChild(input)
   $('a[href="#tabs-2"]').click();
 
-
   input.onkeyup = function () {
     setColumnText(h2, input);
   }
 
 }
-
 
 function renderChart(list) {
 
@@ -178,14 +176,19 @@ function renderByList(value) {
 
   var i = { id: value.selector, y: 0, label: isEmpty(value) ? "Option 1" : value.val() };
   var index = listOfShapes.findIndex(fruit => fruit.id === i.id)
+
   if (index == -1) {
     listOfShapes.push(i);
-  } else {
+  }
+
+  else {
     listOfShapes[index] = i;
   }
-  $.each(listOfShapes, function (index, element) {
-    console.log(element)
-  });
+
+  showList(listOfShapes);
+  // $.each(listOfShapes, function (index, element) {
+  //   console.log(element)
+  // });
   window.listOfShapes = listOfShapes;
   return window.listOfShapes;
 }
@@ -194,7 +197,6 @@ function removeFromList(id) {
   console.log(id)
   $.each(window.listOfShapes, function (index, element) {
     console.log(element)
-
 
     var index = window.listOfShapes.findIndex(x => x.id === '#' + id)
     console.log(index)
@@ -217,7 +219,7 @@ function removeInput(id, deleteId) {
 }
 
 function addGraph() {
-  
+
   var butNew = document.createElement("button");
   $(butNew).addClass('.btn btn-primary btn-block');
   butNew.innerHTML = 'Add';
@@ -233,7 +235,6 @@ function addGraph() {
 
   var tab2 = document.getElementById("tab2");
   tab2.appendChild(butNew);
-
 
   butNew.addEventListener('click', function () {
     let input = makeSection();
@@ -251,9 +252,46 @@ function update(input) {
 
   var val = $("#" + input.id).get().map(function (i) {
     return $(i).val();
+  });
 
-  })
   var list = renderByList($("#" + input.id).val(val));
   renderChart(list);
 
+}
+
+function show(data) {
+
+  console.log('uslo u show')
+  showList(data)
+  $.each(data.elements, function (index, element) {
+    console.log('bieber justin')
+    console.log(element)
+    var slides = document.getElementById("slidesWell");
+
+    var section = document.createElement("section");
+    section.classList.add("slide");
+    section.style.cssText = `background-color:white`;
+
+    if (element.type == 'h2') {
+      var h2 = createElement("h2");
+      h2.classList.add("title");
+      h2.id = NewGuid();
+
+      h2.style.cssText = 'font-size:15px';
+      $('#' + h2.id).css({ top: element.x + 'px', left: element.y + 'px', position: 'absolute' });
+      h2.innerHTML = element.value;
+
+      var br = createElement("br");
+      section.appendChild(h2);
+      slides.appendChild(section);
+      slides.appendChild(br);
+    }
+
+    if (element.type == 'chart') {
+      var img = new Image();
+      img.src = element.value;
+      console.log(img)
+      slides.appendChild(img)
+    }
+  });
 }
