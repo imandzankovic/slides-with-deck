@@ -47,7 +47,9 @@ function getElements() {
 
         i.id = element.id;
         i.type = $("#" + i.id).prop('tagName') == 'H2' ? 'h2' : 'chart'
-        i.value = document.getElementById(i.id) == null ? window.y : document.getElementById(i.id).innerHTML;
+        i.value = document.getElementById(i.id) == null ? element : document.getElementById(i.id).innerHTML;
+
+        console.log('val je ' |+ i.value)
 
         if (i.type == 'h2') {
             i.x = getPosition(element.id).x;
